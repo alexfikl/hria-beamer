@@ -1,0 +1,58 @@
+\documentclass[aspectratio=169]{beamer}
+% some nicer environments
+\usepackage{booktabs}
+
+% <<< BEGIN theme
+
+% remember to set the language if using Romanian
+% \usepackage[romanian]{babel}
+\usetheme[language=romanian]{hria}
+
+% remove navigation symbols
+\beamertemplatenavigationsymbolsempty
+
+% set how hidden items are displayed: invisible / transparent / dynamic
+\setbeamercovered{transparent}
+
+\usepackage{sourcesanspro}
+
+% >>> END
+
+% <<< BEGIN metadata
+
+\title{HRIA Theme Template}
+% \subtitle{Example Stylings of the HRIA Theme}
+\author[H. J. F.]{Dr. Professor Hubert J. Farnsworth}
+\institute{West University of Timișoara}
+\date{24th January, 2026}
+
+% >>> END
+
+\begin{document}
+
+\titleframe
+
+\begin{frame}{HRIA Theme: Colors and Fonts}
+
+This theme uses the \emph{Myriad Pro} font. This is a clean \emph{sans serif}
+font from Adobe that is recommended by the official UVT branding.
+
+\bigskip
+The theme has three standard colors:
+\begin{itemize}
+    \item A nice \textcolor{HRIALightBlue}{\textbf{light blue}} (\texttt{HRIALightBlue}).
+    \item A bolder \textcolor{HRIADarkBlue}{\textbf{dark blue}} (\texttt{HRIADarkBlue}).
+    \item An attention grabbing \textcolor{HRIAGreen}{\textbf{green}}
+    (\texttt{HRIAGreen})!
+    \item Variants \texttt{color!x} can also be used to darken or lighten them
+\end{itemize}
+
+\bigskip
+These can be used for emphasizing \textcolor{HRIALightBlue}{text} or for
+more obvious \alert{alerts}. Standard \textbf{bold} and \textit{italic} emphasis
+can of course also be used!
+\end{frame}
+
+\end{document}
+
+% vim: foldmarker=<<<,>>>:foldmethod=marker

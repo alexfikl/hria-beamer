@@ -1,0 +1,341 @@
+% SPDX-FileCopyrightText: 2026 Alexandru Fikl <alexfikl@gmail.com>
+% SPDX-License-Identifier: CC-BY-4.0
+%
+% This is an unofficial Breamer theme for the HRIA project (Romanian Hub for Artificla
+% Intelligence).
+%
+% Usage:
+%   \usetheme[options]{hria}
+%
+% References:
+%   - News article: https://www.marketwatch.ro/articol/18823/Hub-ul_Roman_de_Inteligenta_Artificiala__motor_pentru_inovatie_si_competitivitate__la_nivel_european/
+%   - Official brochure: https://hria.upb.ro/wp-content/uploads/2025/06/HRIA-Brosura-06-2025.pdf
+%   - EU logos: https://ec.europa.eu/regional_policy/information-sources/logo-download-center_en
+%   - UVT logos: https://www.uvt.ro/dcimi/identitate-vizuala/
+
+\def\fileversion{v0.1}
+\def\filedate{2026/01/24}
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemehria}[\filedate \fileversion HRIA Beamer Theme]
+
+% <<< options
+
+\RequirePackage{ifthen}
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{
+    family=hria,
+    prefix=hria@
+}
+
+% select language for logos
+\DeclareStringOption[english]{language}
+% show a debug layout grid
+\DeclareBoolOption[false]{showframe}
+\DeclareBoolOption[false]{layoutgrid}
+
+\ProcessOptionsBeamer
+\DeclareDefaultOption{\PackageWarning{beamerthemehria}{Unknown option `\CurrentOption`}}
+\ProcessKeyvalOptions*
+
+% >>>
+
+% <<< packages
+
+\RequirePackage{ifpdf}
+\RequirePackage{relsize}
+
+% fancy graphics
+\RequirePackage{tikz}
+
+% nicer command definitions
+\RequirePackage{xparse}
+% used in defining blocks
+\RequirePackage{adjustbox}
+\RequirePackage{colortbl}
+
+\ifhria@showframe
+    \RequirePackage{showframe}
+\fi
+
+\ifhria@layoutgrid
+    \RequirePackage[
+        grid,
+        gridunit=cm,
+        gridcolor=gray!70,
+        subgridcolor=gray!70,
+        texcoord]{eso-pic}
+\fi
+
+\usecolortheme{hria}
+
+% >>>
+
+% <<< fonts
+
+\ifpdftex
+    \RequirePackage[utf8]{inputenc}
+    \RequirePackage[T1]{fontenc}
+\else
+    \RequirePackage{fontspec}
+\fi
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\setbeamerfont{title}        {size=\huge, series=\bfseries}
+\setbeamerfont*{subtitle}    {size=\large, series=\mdseries}
+\setbeamerfont{author}       {size=\normalsize, series=\bfseries}
+\setbeamerfont{date}         {size=\small, series=\mdseries}
+
+\setbeamerfont{frametitle}   {size=\huge, series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\normalsize, series=\mdseries}
+
+\setbeamerfont{section title}{size=\LARGE,series=\bfseries}
+
+\setbeamerfont{alerted text} {series=\bfseries}
+\setbeamerfont{block title}{size=\relsize{+1},series=\bfseries}
+\setbeamerfont{block title alerted}{size=\relsize{+1},series=\bfseries}
+
+\setbeamerfont{page number in head/foot}{size=\footnotesize, series=\bfseries}
+\setbeamerfont{url text}{size=\scriptsize,series=\bfseries}
+\setbeamerfont{author in head/foot}{size=\scriptsize,series=\bfseries}
+
+\setbeamerfont{enumerate item}{size={}, series=\bfseries}
+\setbeamerfont{description item}{size={}, series=\bfseries}
+
+\setbeamerfont{itemize/enumerate body}{size={}}
+\setbeamerfont{itemize/enumerate subbody}{size={}}
+\setbeamerfont{itemize/enumerate subsubbody}{size={}}
+
+% >>>
+
+% <<< outer: header / footer
+
+\defbeamertemplate*{frametitle}{hriaframe}{
+\vspace{13pt}
+\begin{beamercolorbox}[wd=\paperwidth, leftskip=0.2\paperwidth]{frametitle}
+\ifx\insertframesubtitle\empty
+    {\vspace{10pt}\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle}
+\else
+    {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle}\\[-11pt]
+    {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}
+\fi
+\end{beamercolorbox}
+\vspace{-9pt}
+}
+
+\defbeamertemplate{footline}{hriaframe}{
+\begin{tikzpicture}[remember picture, overlay]
+\node [
+    draw=HRIAGreen,
+    fill=HRIAGreen,
+    rounded corners=6pt,
+    inner sep=3pt,
+    align=left,
+    text width=0.4\textwidth,
+    minimum width=0.4\textwidth,
+    anchor=west,
+    yshift=11pt,xshift=0.125\paperwidth]
+    (0, 0) {
+        \usebeamercolor[fg]{page number in head/foot}
+        \usebeamerfont{page number in head/foot}
+        HRIA
+    };
+\node [
+    draw=HRIAGreen,
+    fill=HRIAGreen,
+    rounded corners=6pt,
+    inner sep=2pt,
+    align=right,
+    anchor=east,
+    yshift=11pt,xshift=0.95\paperwidth]
+    (0, 0) {
+        \usebeamercolor[fg]{page number in head/foot}
+        \usebeamerfont{page number in head/foot}
+        \insertframenumber~/~\inserttotalframenumber
+    };
+\draw [
+    HRIAGreen,
+    rounded corners=6pt]
+    ([yshift=5pt, xshift=0.125\paperwidth]current page.south west)
+    rectangle ([yshift=17pt, xshift=-23pt]current page.south east);
+\end{tikzpicture}
+}
+\setbeamertemplate{footline}[hriaframe]
+
+% >>>
+
+% <<< inner: environments
+
+% <<< templates
+
+\setbeamertemplate{background}[hriaslide]
+
+\NewDocumentCommand \titleframe {} {
+    \setbeamertemplate{title page}[hriatitlepage]
+    \setbeamertemplate{background}[hriatitlepage]
+    \frame[plain,noframenumbering]{\titlepage}
+    \setbeamertemplate{background}[hriaslide]
+}
+
+% >>>
+
+% <<< title page
+
+\defbeamertemplate{title page}{hriatitlepage}
+{
+\begin{center}
+    \bigskip
+    % title format
+    \usebeamerfont{title}\usebeamercolor[fg]{title}
+    \inserttitle\par
+    % subtitle
+    \usebeamerfont{subtitle}\insertsubtitle\par%
+    \bigskip
+    % author
+    \usebeamerfont{author}\insertauthor\par%
+    \bigskip
+    % institution
+    \usebeamerfont{date}\insertinstitute\par
+    \usebeamerfont{date}\insertdate%
+\end{center}
+}
+
+% >>>
+
+% <<< background
+
+\defbeamertemplate{background}{hriatitlepage}
+{
+\begin{tikzpicture}[remember picture,overlay]
+% top logos
+\node[anchor=north west,inner sep=12pt] at (current page.north west) {
+    \includegraphics[width=0.57\pageheight]{assets/logo-cofunded-eu-en}
+};
+\node[anchor=north east,inner sep=14pt, yshift=5pt] at (current page.north east) {
+    \includegraphics[width=0.15\pageheight]{assets/logo-gov-ro}
+};
+
+% top separator
+\fill [HRIALightBlue] ([yshift=-66.5pt]current page.north west) rectangle (0.122\pagewidth, -56.5pt);
+\fill [HRIADarkBlue] ([xshift=0.13\pagewidth,yshift=-66.5pt]current page.north west) rectangle (\pagewidth, -56.5pt);
+
+% bottom logos
+\node[anchor=south] at (current page.south) {
+    \includegraphics[width=0.45\pageheight]{assets/logo-hria-ro}%
+};
+\end{tikzpicture}
+}
+
+\defbeamertemplate{background}{hriaslide}{
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=10pt, xshift=10pt, yshift=3pt] at (current page.north west) {
+    \includegraphics[width=0.2\pageheight]{assets/logo-hria-ro}%
+};
+\draw[fill=HRIALightBlue,HRIALightBlue] ([xshift=-225pt]current page.west) circle (\pageheight);
+\end{tikzpicture}
+}
+
+% >>>
+
+% <<< itemize
+
+% FIXME: figure out how to ensure that the bullets are actually in the middle of
+% the text line
+
+\def\hria@itemsize{0.5ex}
+\setbeamertemplate{itemize item}{
+    \tikz{
+        \draw[fill=HRIAGreen, draw=none] (0, 0) rectangle ++(\hria@itemsize, \hria@itemsize);
+        \draw[fill=HRIAGreen, draw=none] (\hria@itemsize, \hria@itemsize) rectangle ++(\hria@itemsize, \hria@itemsize);
+        \draw[fill=HRIAGreen, draw=none] (0, 2*\hria@itemsize) rectangle ++(\hria@itemsize, \hria@itemsize);
+    }
+}
+
+\def\hria@subitemsize{0.35ex}
+\setbeamertemplate{itemize subitem}{
+    \tikz{
+        \draw[fill=white, draw=none] (0, -0.5*\hria@subitemsize) rectangle ++(0.01, 0.01);
+        \draw[fill=HRIADarkBlue, draw=none] (0, 0) rectangle ++(\hria@subitemsize, \hria@subitemsize);
+        \draw[fill=HRIADarkBlue, draw=none] (\hria@subitemsize, \hria@subitemsize) rectangle ++(\hria@subitemsize, \hria@subitemsize);
+        \draw[fill=HRIADarkBlue, draw=none] (0, 2*\hria@subitemsize) rectangle ++(\hria@subitemsize, \hria@subitemsize);
+    }
+}
+
+\setbeamertemplate{itemize subsubitem}{
+    \tikz{
+        \draw[fill=white, draw=none] (0, -0.5*\hria@subitemsize) rectangle ++(0.01, 0.01);
+        \draw[fill=white, draw=none] (0, 0) rectangle ++(\hria@subitemsize, \hria@subitemsize);
+        \draw[fill=HRIALightBlue, draw=none] (\hria@subitemsize, \hria@subitemsize) rectangle ++(\hria@subitemsize, \hria@subitemsize);
+        \draw[fill=white, draw=none] (0, 2*\hria@subitemsize) rectangle ++(\hria@subitemsize, \hria@subitemsize);
+    }
+}
+
+% >>>
+
+% <<< blocks
+
+\setbeamertemplate{block begin}{
+    \vspace{\fill}
+    \begin{adjustbox}{max width=0.98\textwidth}
+        \begin{tabular}{!{\color{HRIADarkBlue}{\vrule width 4pt}}>{\columncolor[gray]{0.97}}m{\textwidth}}
+    	    \begin{beamercolorbox}{block title}
+                \usebeamerfont*{block title}
+                \vbox{}\vskip 0.05ex
+                \insertblocktitle
+                \vbox{}\vskip 0.2ex
+            \end{beamercolorbox}
+            \usebeamerfont*{block text}
+}
+\setbeamertemplate{block end}{\end{tabular}\end{adjustbox}}
+
+\setbeamertemplate{block alerted begin}{
+    \vspace{\fill}
+    \begin{adjustbox}{max width=0.98\textwidth}
+        \begin{tabular}{!{\color{HRIAGreen}{\vrule width 4pt}}>{\columncolor[gray]{0.97}}m{\textwidth}}
+    	    \begin{beamercolorbox}{alerted text}
+                \usebeamerfont*{block title}
+                \vbox{}\vskip 0.05ex
+                \insertblocktitle
+                \vbox{}\vskip 0.2ex
+            \end{beamercolorbox}
+            \usebeamerfont*{block text}
+}
+\setbeamertemplate{block alerted end}{\end{tabular}\end{adjustbox}}
+
+\setbeamertemplate{block example begin}{
+    \vspace{\fill}
+    \begin{adjustbox}{max width=0.98\textwidth}
+        \begin{tabular}{!{\color{HRIALightBlue}{\vrule width 4pt}}>{\columncolor[gray]{0.97}}m{\textwidth}}
+    	    \begin{beamercolorbox}{example text}
+                \usebeamerfont*{block title}
+                \vbox{}\vskip 0.05ex
+                \insertblocktitle
+                \vbox{}\vskip 0.2ex
+            \end{beamercolorbox}
+            \usebeamerfont*{block text}
+}
+\setbeamertemplate{block example end}{\end{tabular}\end{adjustbox}}
+
+% >>>
+
+% <<< figures
+
+% disable "Figure:" in the captions
+\setbeamertemplate{caption}{\insertcaption}
+\setbeamertemplate{caption label separator}{}
+
+% >>>
+
+\setbeamersize{
+    text margin left=.05\paperwidth,
+    text margin right=.05\paperwidth,
+    description width=0.075\paperwidth,
+    }
+\setlength{\labelsep}{\dimexpr\labelsep - 0.2em\relax}
+
+\setbeamersize{text margin left=0.125\paperwidth}
+
+% >>>
+
+%% vim: foldmarker=<<<,>>>:foldmethod=marker:nospell:filetype=tex

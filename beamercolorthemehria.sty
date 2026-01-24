@@ -1,0 +1,51 @@
+% SPDX-FileCopyrightText: 2023 Alexandru Fikl <alexfikl@gmail.com>
+% SPDX-License-Identifier: CC-BY-4.0
+
+\def\fileversion{v0.1}
+\def\filedate{2026/01/24}
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamercolorthemehria}[\filedate \fileversion HRIA Beamer Color Theme]
+
+% <<< colors
+
+\definecolor{HRIADarkBlue}{RGB}{7, 90, 155}
+\definecolor{HRIALightBlue}{RGB}{15, 157, 217}
+\definecolor{HRIAGreen}{RGB}{107, 195, 146}
+\definecolor{HRIAPurple}{RGB}{115, 44, 144}
+
+\definecolor{EUBlue}{RGB}{0, 50, 152}
+\definecolor{HRIABeamerGray}{RGB}{246, 246, 246}
+\definecolor{HRIABeamerDarkGray}{RGB}{182, 182, 182}
+
+% >>>
+
+% <<< styles
+
+\setbeamercolor{title}{fg=EUBlue, bg= , parent=normal text}
+\setbeamercolor{titlelike}{fg= , bg= , parent=normal text}
+\setbeamercolor{author}{use=normal text, bg= , parent=normal text}
+\setbeamercolor{date}{use=normal text, bg= , parent=normal text}
+\setbeamercolor{institute}{use=normal text, parent=normal text}
+
+\setbeamercolor{section title}{fg=white, use=title}
+\setbeamercolor{frametitle}{fg=HRIADarkBlue, use=titlelike}
+
+\setbeamercolor{footline hline}{bg=HRIABeamerGray}
+\setbeamercolor{header hline}{bg=HRIABeamerGray}
+
+\setbeamercolor{page number in head/foot}{fg=white}
+\setbeamercolor{url text}{fg=HRIADarkBlue}
+
+\setbeamercolor{block title}{fg=HRIADarkBlue}
+\setbeamercolor{alerted text}{fg=HRIAGreen}
+\setbeamercolor{example text}{fg=HRIALightBlue}
+
+\setbeamercolor{enumerate item}{fg=HRIAGreen, parent=normal text}
+\setbeamercolor{description item}{fg=HRIAGreen, parent=normal text}
+
+\setbeamercolor{caption}{fg=HRIABeamerGray!50!black, parent=normal text}
+
+% >>>
+
+%% vim: foldmarker=<<<,>>>:foldmethod=marker:nospell:filetype=tex
