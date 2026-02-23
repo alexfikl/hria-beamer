@@ -37,7 +37,14 @@ but care must be taken to size them nicely.
 
 | Macro                             | Description                           |
 | :-                                | :-                                    |
+| `\hrialogo`                       | Main HRIA logo used on the title page |
+| `\hrialogoeu`                     | EU logo used on the top-left of the title page |
+| `\hrialogoro`                     | Romanian Government logo used on the top-right of the title page |
 | `\venue`                          | Venue name (for the presentation) in footer |
+
+Note that you generally do not want to change these logos, since they have good
+defaults. However, you may want to use your institutional logo instead of, e.g.,
+the EU logo, so these commands are available.
 
 ## License
 

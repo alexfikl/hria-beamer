@@ -77,7 +77,7 @@
 \ProvideDocumentCommand \hrialogoeu { m } {\def\hria@logoeu{#1}}
 \ProvideDocumentCommand \hrialogoro { m } {\def\hria@logoro{#1}}
 
-\ProvideDocumentCommand \venue { m } {\def\uvt@venue{#1}}
+\ProvideDocumentCommand \venue { m } {\def\hria@venue{#1}}
 
 % >>>
 
@@ -168,7 +168,7 @@
     (0, 0) {
         \usebeamercolor[fg]{page number in head/foot}
         \usebeamerfont{page number in head/foot}
-        \@ifundefined{uvt@venue}{HRIA @ \url{https://hria.upb.ro}}{\par\usebeamerfont{venue}\uvt@venue}
+        \@ifundefined{hria@venue}{HRIA @ \url{https://hria.upb.ro}}{\par\usebeamerfont{venue}\hria@venue}
     };
 \node [
     draw=HRIAGreen,
