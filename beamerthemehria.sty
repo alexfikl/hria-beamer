@@ -154,6 +154,7 @@
 }
 
 \defbeamertemplate{footline}{hriaframe}{
+\begin{beamercolorbox}[ht=0.6cm,dp=0pt]{footline}
 \begin{tikzpicture}[remember picture, overlay]
 \node [
     draw=HRIAGreen,
@@ -189,6 +190,7 @@
     ([yshift=5pt, xshift=15mm]current page.south west)
     rectangle ([yshift=17pt, xshift=-23pt]current page.south east);
 \end{tikzpicture}
+\end{beamercolorbox}
 }
 \setbeamertemplate{footline}[hriaframe]
 
@@ -262,10 +264,8 @@
 
 % <<< itemize
 
-% FIXME: figure out how to ensure that the bullets are actually in the middle of
-% the text line
+% FIXME: figure out how to ensure that the bullets are actually in the middle of the text line?
 
-\def\hria@itemsize{0.5ex}
 \setbeamertemplate{itemize item}{
 \tikz[baseline=(c.south)]{
     % circle
