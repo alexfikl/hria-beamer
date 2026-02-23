@@ -216,19 +216,19 @@
 \begin{tikzpicture}[remember picture,overlay]
 % top logos
 \node[anchor=north west,inner sep=12pt] at (current page.north west) {
-    \includegraphics[width=0.57\pageheight]{assets/logo-cofunded-eu-ro}
+    \includegraphics[width=0.57\paperheight]{assets/logo-cofunded-eu-ro}
 };
 \node[anchor=north east,inner sep=14pt, yshift=5pt] at (current page.north east) {
-    \includegraphics[width=0.15\pageheight]{assets/logo-gov-ro}
+    \includegraphics[width=0.15\paperheight]{assets/logo-gov-ro}
 };
 
 % top separator
 \fill [HRIALightBlue] ([yshift=-66.5pt]current page.north west) rectangle (20mm, -56.5pt);
-\fill [HRIADarkBlue] ([xshift=22mm, yshift=-66.5pt]current page.north west) rectangle (\pagewidth, -56.5pt);
+\fill [HRIADarkBlue] ([xshift=22mm, yshift=-66.5pt]current page.north west) rectangle (\paperwidth, -56.5pt);
 
 % bottom logos
 \node[anchor=south] at (current page.south) {
-    \includegraphics[width=0.45\pageheight]{assets/logo-hria-ro}%
+    \includegraphics[width=0.45\paperheight]{assets/logo-hria-ro}%
 };
 \end{tikzpicture}
 }
@@ -236,10 +236,10 @@
 \defbeamertemplate{background}{hriaslide}{
 \begin{tikzpicture}[remember picture,overlay]
 \node[anchor=north west, xshift=4mm, yshift=-0.75mm] at (current page.north west) {
-    \includegraphics[width=0.2\pageheight]{assets/logo-hria-ro}%
+    \includegraphics[width=0.2\paperheight]{assets/logo-hria-ro}%
 };
 \fill[HRIALightBlue, inner sep=0pt]
-    (-0.88\pageheight, -0.5\pageheight) circle (\pageheight);
+    (-0.88\paperheight, -0.5\paperheight) circle (\paperheight);
 \end{tikzpicture}
 }
 
