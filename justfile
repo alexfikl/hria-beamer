@@ -20,12 +20,12 @@ image: template
     magick \
         -verbose \
         -density 300 \
-        template.pdf[0-5,12-13] \
+        template.pdf[0-4,12-13] \
         -quality 100 \
         -sharpen 0x1.0 \
         '{{ TEXOUTDIR }}/template-%02d.png'
     montage {{ TEXOUTDIR }}/template-*.png \
-        -border 1 -tile 2x4 -geometry 1000x \
+        -border 1 -tile 2x3 -geometry 1000x \
         images/template.png
 
 [doc("Remove all compilation files")]
