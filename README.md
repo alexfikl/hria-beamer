@@ -5,9 +5,12 @@
 
 > [!WARNING]
 > This template is mostly just a personal project at the moment and does not have
-> any official capacity. It works well enough for that, but is also missing a
+> any official backing. It works well enough for that, but is also missing a
 > few quality-of-life features. Any bug reports or feature requests are
 > **very welcome**!
+
+This is a Beamer template for the [HRIA project](https://hria.upb.ro/en/)
+(Romanian Hub for Artificial Intelligence).
 
 ## What it Looks Like
 
@@ -45,6 +48,13 @@ but care must be taken to size them nicely.
 Note that you generally do not want to change these logos, since they have good
 defaults. However, you may want to use your institutional logo instead of, e.g.,
 the EU logo, so these commands are available.
+
+| Color                             | RGB
+| :-                                | :-
+| `HRIALightBlue`                   | ![#0F9DD9](https://placehold.co/15x15/0F9DD9/0F9DD9.png) `(15, 157, 217)` |
+| `HRIADarkBlue`                    | ![#075A9B](https://placehold.co/15x15/075A9B/075A9B.png) `(7, 90, 155)`   |
+| `HRIAGreen`                       | ![#6BC392](https://placehold.co/15x15/6BC392/6BC392.png) `(107, 195, 217)` |
+| `HRIAPurple`                      | ![#732C90](https://placehold.co/15x15/732C90/732C90.png) `(115, 44, 144)` |
 
 ## License
 
