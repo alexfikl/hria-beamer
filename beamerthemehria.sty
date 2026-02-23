@@ -252,31 +252,32 @@
 
 \def\hria@itemsize{0.5ex}
 \setbeamertemplate{itemize item}{
-    \tikz{
-        \draw[fill=HRIAGreen, draw=none] (0, 0) rectangle ++(\hria@itemsize, \hria@itemsize);
-        \draw[fill=HRIAGreen, draw=none] (\hria@itemsize, \hria@itemsize) rectangle ++(\hria@itemsize, \hria@itemsize);
-        \draw[fill=HRIAGreen, draw=none] (0, 2*\hria@itemsize) rectangle ++(\hria@itemsize, \hria@itemsize);
-    }
+\tikz[baseline=(c.south)]{
+    % circle
+    \node[
+      circle,
+      fill=HRIALightBlue,
+      minimum size=0.75em,
+      inner sep=0pt
+    ] (c) {};
+
+    % compute radius
+    \pgfmathsetmacro{\r}{0.05}
+
+    % draw thick >
+    \draw[
+      white,
+      line width=0.1em,
+      line cap=round,
+      line join=round
+    ] (-\r, \r) -- (\r, 0) -- (-\r, -\r);
+  }%
 }
 
 \def\hria@subitemsize{0.35ex}
-\setbeamertemplate{itemize subitem}{
-    \tikz{
-        \draw[fill=white, draw=none] (0, -0.5*\hria@subitemsize) rectangle ++(0.01, 0.01);
-        \draw[fill=HRIADarkBlue, draw=none] (0, 0) rectangle ++(\hria@subitemsize, \hria@subitemsize);
-        \draw[fill=HRIADarkBlue, draw=none] (\hria@subitemsize, \hria@subitemsize) rectangle ++(\hria@subitemsize, \hria@subitemsize);
-        \draw[fill=HRIADarkBlue, draw=none] (0, 2*\hria@subitemsize) rectangle ++(\hria@subitemsize, \hria@subitemsize);
-    }
-}
+\setbeamertemplate{itemize subitem}{\color{HRIALightBlue}$\bullet$}
 
-\setbeamertemplate{itemize subsubitem}{
-    \tikz{
-        \draw[fill=white, draw=none] (0, -0.5*\hria@subitemsize) rectangle ++(0.01, 0.01);
-        \draw[fill=white, draw=none] (0, 0) rectangle ++(\hria@subitemsize, \hria@subitemsize);
-        \draw[fill=HRIALightBlue, draw=none] (\hria@subitemsize, \hria@subitemsize) rectangle ++(\hria@subitemsize, \hria@subitemsize);
-        \draw[fill=white, draw=none] (0, 2*\hria@subitemsize) rectangle ++(\hria@subitemsize, \hria@subitemsize);
-    }
-}
+\setbeamertemplate{itemize subsubitem}{\color{HRIALightBlue}\rule[0.5ex]{0.75ex}{0.3ex}}
 
 % >>>
 

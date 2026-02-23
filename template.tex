@@ -32,10 +32,33 @@
 
 \titleframe
 
+\begin{frame}{HRIA Theme}
+\framesubtitle{A short introduction to the HRIA theme}
+
+The \textbf{HRIA Theme} (used as \texttt{\textbackslash usetheme\{hria\}}) is a
+modern theme for Beamer based on some exiting HRIA documents\footnotemark[1].
+
+\bigskip
+It comes with a few nifty features:
+\begin{itemize}
+    \item Use of the HRIA colors consistent with other documents.
+    \item Clean typography and spacing.
+    \item Customized environments.
+\end{itemize}
+
+\bigskip
+Separate parts are available as e.g. \texttt{\textbackslash usecolortheme\{hria\}}!
+
+\footnotetext[1]{\tiny
+\url{https://hria.upb.ro/wp-content/uploads/2025/06/HRIA-Brosura-06-2025.pdf}.
+\vspace{0.65cm}
+}
+\end{frame}
+
 \begin{frame}{HRIA Theme: Colors and Fonts}
 
-This theme uses the \emph{Myriad Pro} font. This is a clean \emph{sans serif}
-font from Adobe that is recommended by the official UVT branding.
+This theme uses the \emph{Adobe Source Sans Pro} font. This is a clean \emph{sans serif}
+font from Adobe that is freely available.
 
 \bigskip
 The theme has three standard colors:
@@ -51,6 +74,123 @@ The theme has three standard colors:
 These can be used for emphasizing \textcolor{HRIALightBlue}{text} or for
 more obvious \alert{alerts}. Standard \textbf{bold} and \textit{italic} emphasis
 can of course also be used!
+\end{frame}
+
+\begin{frame}{HRIA Theme: Blocks}
+We have various standard Beamer blocks styled in a pleasing fashion.
+
+\begin{block}{Block 1}
+Some block block.
+\end{block}
+
+\begin{alertblock}{Alert 1}
+Some alert block.
+\end{alertblock}
+
+\begin{exampleblock}{Example 1}
+Some example block.
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{HRIA Theme: Lists}
+\textbf{Itemize}
+
+\begin{itemize}
+    \item Itemize lists are nicely customized ...
+    \begin{itemize}
+        \item All the way down ...
+        \begin{itemize}
+            \item To the third level!
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\textbf{Enumerate}
+
+\begin{enumerate}
+    \item We can also enumerate!
+    \item Many things!
+    \item It's great!
+\end{enumerate}
+
+\textbf{Description}
+
+\begin{description}
+    \item[HRIA] And describe the project in exquisite detail, so that we
+        can capture all its multiline greatness!
+\end{description}
+\end{frame}
+
+\begin{frame}{HRIA Theme: Animations}
+
+You can do a standard reveal with \texttt{[<+->]}.
+\bigskip
+
+\begin{itemize}[<+->]
+    \item This is\alert<4>{ really} important.
+    \item Now this.
+    \item And now this.
+\end{itemize}
+
+\visible<4->{
+\pause
+\bigskip
+You can also do an alerted reveal with \texttt{[<+- | alert@+>]}.
+\bigskip
+
+\begin{itemize}[<+- | alert@+>]
+    \item This is important.
+    \item Now this.
+    \item And now this.
+\end{itemize}
+}
+\end{frame}
+
+\begin{frame}{HRIA Theme: Figures}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{figure}
+\begin{tikzpicture}
+    % Draw axes
+    \draw [<->,thick] (0,2) node (yaxis) [above] {$y$}
+        |- (3,0) node (xaxis) [right] {$x$};
+    % Draw two intersecting lines
+    \draw (0,0) coordinate (a_1) -- (2,1.8) coordinate (a_2);
+    \draw (0,1.5) coordinate (b_1) -- (2.5,0) coordinate (b_2);
+    % Calculate the intersection of the lines a_1 -- a_2 and b_1 -- b_2
+    % and store the coordinate in c.
+    \coordinate (c) at (intersection of a_1--a_2 and b_1--b_2);
+    % Draw lines indicating intersection with y and x axis. Here we use
+    % the perpendicular coordinate system
+    \draw[dashed] (yaxis |- c) node[left] {$y'$}
+        -| (xaxis -| c) node[below] {$x'$};
+    % Draw a dot to indicate intersection point
+    \fill[HRIALightBlue] (c) circle (2pt);
+\end{tikzpicture}
+\caption{A simple figure.}
+\end{figure}
+\end{column}
+
+\begin{column}{0.4\textwidth}
+\centering
+\begin{table}
+\caption{Largest cities in the world (source: UN 2018 population estimates
+from Wikipedia)}
+\begin{tabular}{@{} lr @{}}
+    \toprule
+    City & Population\\
+    \midrule
+    Tokyo & 37,468,000 \\
+    Delhi & 28,514,000 \\
+    Shanghai & 25,582,000 \\
+    São Paolo & 21,650,000 \\
+    \bottomrule
+\end{tabular}
+\end{table}
+\end{column}
+\end{columns}
+
 \end{frame}
 
 \end{document}
