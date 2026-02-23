@@ -73,7 +73,30 @@
 
 % <<< commands
 
+\ProvideDocumentCommand \hrialogo { m } {\def\hria@logo{#1}}
+\ProvideDocumentCommand \hrialogoeu { m } {\def\hria@logoeu{#1}}
+\ProvideDocumentCommand \hrialogoro { m } {\def\hria@logoro{#1}}
+
 \ProvideDocumentCommand \venue { m } {\def\uvt@venue{#1}}
+
+% >>>
+
+% <<< assets
+
+\RequirePackage{ifthen}
+
+\ifthenelse{\equal{\hria@language}{english}}{
+    \hrialogoeu{\includegraphics[width=0.57\paperheight]{assets/logo-cofunded-eu-en}}
+    \hrialogoro{\includegraphics[width=0.15\paperheight]{assets/logo-gov-ro}}
+    \hrialogo{\includegraphics[width=0.45\paperheight]{assets/logo-hria-en}}
+}{
+\ifthenelse{\equal{\hria@language}{romanian}}{
+    \hrialogoeu{\includegraphics[width=0.57\paperheight]{assets/logo-cofunded-eu-ro}}
+    \hrialogoro{\includegraphics[width=0.15\paperheight]{assets/logo-gov-ro}}
+    \hrialogo{\includegraphics[width=0.45\paperheight]{assets/logo-hria-ro}}
+}{
+    \PackageError{beamerthemehria}{Unknown language `\hria@language`}{}
+}}
 
 % >>>
 
@@ -215,29 +238,21 @@
 {
 \begin{tikzpicture}[remember picture,overlay]
 % top logos
-\node[anchor=north west,inner sep=12pt] at (current page.north west) {
-    \includegraphics[width=0.57\paperheight]{assets/logo-cofunded-eu-ro}
-};
-\node[anchor=north east,inner sep=14pt, yshift=5pt] at (current page.north east) {
-    \includegraphics[width=0.15\paperheight]{assets/logo-gov-ro}
-};
+\node[anchor=north west,inner sep=12pt] at (current page.north west) {\hria@logoeu};
+\node[anchor=north east,inner sep=14pt, yshift=5pt] at (current page.north east) {\hria@logoro};
 
 % top separator
 \fill [HRIALightBlue] ([yshift=-66.5pt]current page.north west) rectangle (20mm, -56.5pt);
 \fill [HRIADarkBlue] ([xshift=22mm, yshift=-66.5pt]current page.north west) rectangle (\paperwidth, -56.5pt);
 
 % bottom logos
-\node[anchor=south] at (current page.south) {
-    \includegraphics[width=0.45\paperheight]{assets/logo-hria-ro}%
-};
+\node[anchor=south] at (current page.south) {\hria@logo};
 \end{tikzpicture}
 }
 
 \defbeamertemplate{background}{hriaslide}{
 \begin{tikzpicture}[remember picture,overlay]
-\node[anchor=north west, xshift=4mm, yshift=-0.75mm] at (current page.north west) {
-    \includegraphics[width=0.2\paperheight]{assets/logo-hria-ro}%
-};
+\node[anchor=north west, xshift=4mm, yshift=-0.75mm] at (current page.north west) {\scalebox{0.475}{\hria@logo}};
 \fill[HRIALightBlue, inner sep=0pt]
     (-0.88\paperheight, -0.5\paperheight) circle (\paperheight);
 \end{tikzpicture}
