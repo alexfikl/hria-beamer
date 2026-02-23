@@ -28,6 +28,7 @@ jobs:
       matrix:
         engine: ['pdflatex', 'lualatex']
         texlive_version: ['2023', '2024', '2025']
+      fail-fast: false
 
     steps:
       - uses: actions/checkout@v6
