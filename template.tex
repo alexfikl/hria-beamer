@@ -5,10 +5,9 @@
 % <<< BEGIN theme
 
 % remember to set the language if using Romanian
-\usepackage[romanian]{babel}
+\usepackage[english]{babel}
 \usetheme[language=english]{hria}
 
-\usepackage{csquotes}
 \usepackage{qrcode}
 
 % remove navigation symbols
@@ -26,7 +25,7 @@
 \title{HRIA Theme Template}
 % \subtitle{Example Stylings of the HRIA Theme}
 \author[H. J. F.]{Dr. Professor Hubert J. Farnsworth}
-\institute{West University of Timișoara}
+\institute{Academy of Science, New New York}
 \date{24th January, 2026}
 % \venue{My Awesome Conference --- 24/01/2026}
 
@@ -195,21 +194,40 @@ from Wikipedia)}
 \end{columns}
 \end{frame}
 
-\begin{frame}{Acknowledgements}
+\begin{frame}[plain,noframenumbering]{Acknowledgements}
 \vfill
+\centering
+
 \begin{quote}
-This research was supported by the project \enquote{Romanian Hub for Artificial
-Intelligence -- HRIA}, Smart Growth, Digitization and Financial Instruments Program,
-2021-2027, MySMIS no. 351416.
+\inserthriafunding
 \end{quote}
 
 \bigskip
-
-\begin{center}
-{\hypersetup{urlcolor=black} \qrcode[height=0.2\paperwidth]{https://hria.upb.ro}}
+\inserthriaqrcode
 
 \medskip
-\url{https://hria.upb.ro.}
+\Large
+\href{\inserthriaurl}{\textbf{\texttt{\inserthriaurl}}}
+\vfill
+\end{frame}
+
+\begin{frame}[plain,noframenumbering]{}
+\vfill
+\begin{center}
+{\Large \textbf{Hubert J. Farnsworth} }
+
+\textit{Academy of Science, New New York}
+
+\bigskip
+
+\begin{tabular}{ll}
+\texttt{Email:} &
+    \href{mailto:hubert.farnsworth@e-uvt.ro}{\texttt{hubert.farnsworth@e-uvt.ro}} \\
+\texttt{ORCiD:} &
+    \href{https://orcid.org/0000-0003-1399-3606}{\texttt{0000-0003-1399-3606}} \\
+\texttt{Website:} &
+    \href{https://github.com/alexfikl/hria-beamer}{\texttt{https://github.com/alexfikl/hria-beamer}}
+\end{tabular}
 \end{center}
 \vfill
 \end{frame}
