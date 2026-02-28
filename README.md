@@ -38,12 +38,16 @@ The `language` is used to automatically select the logos with appropriate text.
 This can be avoided by providing your own logos using the following commands,
 but care must be taken to size them nicely.
 
-| Macro                             | Description                           |
-| :-                                | :-                                    |
-| `\hrialogo`                       | Main HRIA logo used on the title page |
-| `\hrialogoeu`                     | EU logo used on the top-left of the title page |
-| `\hrialogoro`                     | Romanian Government logo used on the top-right of the title page |
-| `\venue`                          | Venue name (for the presentation) in footer |
+| Macro                  | Description                           |
+| :-                     | :-                                    |
+| `\hriaurl{<>}`         | A URL for the HRIA website (used for QR code, footer, etc.) |
+| `\hriafunding{<>}`     | A funding blurb (used in Acknowedgements page) |
+| `\inserthriaurl`       | Retrieve URL set through `\hriaurl` |
+| `\inserthriafunding`   | Retrieve funding blurb set through `\hriafunding` |
+| `\venue{<>}`           | Venue name (for the presentation) in footer |
+| `\hrialogo{<>}`        | Main HRIA logo used on the title page |
+| `\hrialogoeu{<>}`      | EU logo used on the top-left of the title page |
+| `\hrialogoro{<>}`      | Romanian Government logo used on the top-right of the title page |
 
 Note that you generally do not want to change these logos, since they have good
 defaults. However, you may want to use your institutional logo instead of, e.g.,
