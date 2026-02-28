@@ -41,7 +41,7 @@ but care must be taken to size them nicely.
 | Macro                  | Description                           |
 | :-                     | :-                                    |
 | `\hriaurl{<>}`         | A URL for the HRIA website (used for QR code, footer, etc.) |
-| `\hriafunding{<>}`     | A funding blurb (used in Acknowedgements page) |
+| `\hriafunding{<>}`     | A funding blurb (used in Acknowledgements page) |
 | `\inserthriaurl`       | Retrieve URL set through `\hriaurl` |
 | `\inserthriafunding`   | Retrieve funding blurb set through `\hriafunding` |
 | `\venue{<>}`           | Venue name (for the presentation) in footer |
