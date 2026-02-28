@@ -3,7 +3,7 @@ TEXOUTDIR := "latex.out"
 TEXFLAGS := "-pdflua -output-directory=" + TEXOUTDIR
 
 _default:
-    @just --list
+    @just template
 
 [private]
 pdf basename:
@@ -20,7 +20,7 @@ image: template
     magick \
         -verbose \
         -density 300 \
-        template.pdf[0-4,12-13] \
+        template.pdf[0-4,12-12] \
         -quality 100 \
         -sharpen 0x1.0 \
         '{{ TEXOUTDIR }}/template-%02d.png'
