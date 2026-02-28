@@ -43,16 +43,16 @@
 % <<< packages
 
 \RequirePackage{ifpdf}
+\RequirePackage{xparse}
+
+% used in defining blocks
+\RequirePackage{adjustbox}
+\RequirePackage{colortbl}
+% handle font sizes by different increments
 \RequirePackage{relsize}
 
 % fancy graphics
 \RequirePackage{tikz}
-
-% nicer command definitions
-\RequirePackage{xparse}
-% used in defining blocks
-\RequirePackage{adjustbox}
-\RequirePackage{colortbl}
 
 \ifhria@showframe
     \RequirePackage{showframe}
@@ -67,7 +67,19 @@
         texcoord]{eso-pic}
 \fi
 
+% >>>
+
+% <<< formatting
+
 \usecolortheme{hria}
+
+\hypersetup{%
+    colorlinks=true,
+    urlcolor=HRIALightBlue,
+    citecolor=HRIALightBlue,
+    linkcolor=HRIALightBlue
+}
+\renewcommand{\UrlFont}{\bfseries\ttfamily}
 
 % >>>
 
@@ -169,7 +181,11 @@
     (0, 0) {
         \usebeamercolor[fg]{page number in head/foot}
         \usebeamerfont{page number in head/foot}
-        \@ifundefined{hria@venue}{HRIA @ \url{https://hria.upb.ro}}{\par\usebeamerfont{venue}\hria@venue}
+        \@ifundefined{hria@venue}{%
+            \hypersetup{urlcolor=white}HRIA @ \url{https://hria.upb.ro}
+        }{%
+            \hypersetup{urlcolor=white}\par\usebeamerfont{venue}\hria@venue
+        }
     };
 \node [
     draw=HRIAGreen,
