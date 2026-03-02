@@ -28,6 +28,10 @@ image: template
         -border 1 -tile 2x3 -geometry 1000x \
         images/template.png
 
+[doc("Create a convenient zip file with the template files")]
+zip:
+    zip -r "$(basename $(pwd)).zip" assets *.sty template.tex
+
 [doc("Remove all compilation files")]
 clean:
     rm -rf {{ TEXOUTDIR }} images/{{ TEXOUTDIR }}
@@ -35,4 +39,6 @@ clean:
 
 [doc("Remove all generated files")]
 purge: clean
-    rm -rf *.pdf images/*.pdf images/template.png
+    rm -rf *.pdf
+    rm -rf images/template.png
+    rm -rf *.zip
