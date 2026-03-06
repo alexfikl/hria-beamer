@@ -22,11 +22,14 @@
     \usepackage{unicode-math}
     \usepackage{sourcesanspro}
 
-    \IfFontExistsTF{Titillium Web}{
-        \setmainfont{Titillium Web}
-        \setsansfont{Titillium Web}
-        % \setmathfont{Fira Math}[Scale=0.95]
-    }{}
+    % FIXME: this seems to be the ``official'' font, but it looks a bit square-y to me
+    % and it's not doing a great job at romanian diacritics (see ș and ț), so maybe
+    % better to leave it out unless there's a very good reason not to?
+    % \IfFontExistsTF{Titillium Web}{
+    %     \setmainfont{Titillium Web}
+    %     \setsansfont{Titillium Web}
+    %     \setmathfont{Fira Math}[Scale=0.95]
+    % }{}
 \fi
 
 % >>> END
