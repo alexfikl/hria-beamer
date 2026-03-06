@@ -154,7 +154,7 @@ those of the author(s) and do not necessarily reflect the views of the funding a
 \setbeamerfont{block title}{size=\relsize{+1},series=\bfseries}
 \setbeamerfont{block title alerted}{size=\relsize{+1},series=\bfseries}
 
-\setbeamerfont{page number in head/foot}{size=\footnotesize, series=\bfseries}
+\setbeamerfont{page number in head/foot}{size*={6}{7.2}, series=\bfseries}
 \setbeamerfont{url text}{size=\scriptsize,series=\bfseries}
 \setbeamerfont{author in head/foot}{size=\scriptsize,series=\bfseries}
 
@@ -197,8 +197,9 @@ those of the author(s) and do not necessarily reflect the views of the funding a
     align=left,
     text width=0.5\textwidth,
     minimum width=0.5\textwidth,
+    minimum height=0.4cm,
     anchor=west,
-    yshift=11pt,xshift=15mm]
+    yshift=0.4cm,xshift=\beamer@leftmargin]
     (0, 0) {
         \usebeamercolor[fg]{page number in head/foot}
         \usebeamerfont{page number in head/foot}
@@ -215,7 +216,8 @@ those of the author(s) and do not necessarily reflect the views of the funding a
     inner sep=2pt,
     align=right,
     anchor=east,
-    yshift=11pt,xshift=\textwidth-8mm]
+    minimum height=0.4cm,
+    yshift=0.4cm,xshift=\textwidth-\beamer@rightmargin]
     (0, 0) {
         \usebeamercolor[fg]{page number in head/foot}
         \usebeamerfont{page number in head/foot}
@@ -224,8 +226,7 @@ those of the author(s) and do not necessarily reflect the views of the funding a
 \draw [
     HRIAGreen,
     rounded corners=6pt]
-    ([yshift=5pt, xshift=15mm]current page.south west)
-    rectangle ([yshift=17pt, xshift=-23pt]current page.south east);
+    (\beamer@leftmargin, 0.2cm) rectangle (\textwidth-\beamer@rightmargin, 0.6cm);
 \end{tikzpicture}
 \end{beamercolorbox}
 }
