@@ -140,13 +140,13 @@ those of the author(s) and do not necessarily reflect the views of the funding a
 
 \renewcommand{\familydefault}{\sfdefault}
 
-\setbeamerfont{title}{size=\huge, series=\bfseries}
-\setbeamerfont*{subtitle}{size=\large, series=\mdseries}
-\setbeamerfont{author}{size=\normalsize, series=\bfseries}
-\setbeamerfont{date}{size=\small, series=\mdseries}
+\setbeamerfont{title}{size*={20.74}{24.88}, series=\bfseries}
+\setbeamerfont*{subtitle}{size*={12}{14.4}, series=\mdseries}
+\setbeamerfont{author}{size*={10.95}{13.14}, series=\bfseries}
+\setbeamerfont{date}{size*={10}{12}, series=\mdseries}
 
-\setbeamerfont{frametitle}{size=\huge, series=\bfseries}
-\setbeamerfont{framesubtitle}{size=\normalsize, series=\mdseries}
+\setbeamerfont{frametitle}{size*={20.74}{24.88}, series=\bfseries}
+\setbeamerfont{framesubtitle}{size*={10.95}{13.14}, series=\mdseries}
 
 \setbeamerfont{section title}{size=\LARGE,series=\bfseries}
 
@@ -170,16 +170,20 @@ those of the author(s) and do not necessarily reflect the views of the funding a
 % <<< outer: header / footer
 
 \defbeamertemplate*{frametitle}{hriaframe}{
-\vspace{13pt}
-\begin{beamercolorbox}[wd=\paperwidth, leftskip=30mm]{frametitle}
-\ifx\insertframesubtitle\empty
-    {\vspace{10pt}\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle}
-\else
-    {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle}\\[-11pt]
-    {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}
-\fi
-\end{beamercolorbox}
-\vspace{-9pt}
+\nointerlineskip%
+\hbox to \paperwidth{%
+    \hskip 15mm\relax
+    \vbox to \dimexpr11.75mm + \dp\strutbox\relax{%
+        \vss
+        \ifx\insertframesubtitle\empty
+            {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle\strut\par}
+            \vskip 1.7mm
+        \else
+            {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle} \\[-0.5mm]
+            {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}
+        \fi
+    }
+}
 }
 
 \defbeamertemplate{footline}{hriaframe}{
@@ -249,16 +253,16 @@ those of the author(s) and do not necessarily reflect the views of the funding a
 \defbeamertemplate{title page}{hriatitlepage}
 {
 \begin{center}
-    \bigskip
+    \vspace{0.75cm}
     % title format
     \usebeamerfont{title}\usebeamercolor[fg]{title}
-    \inserttitle\par
+    \inserttitle\strut\par
     % subtitle
     \usebeamerfont{subtitle}\insertsubtitle\par%
-    \bigskip
+    \vspace{0.45cm}
     % author
     \usebeamerfont{author}\insertauthor\par%
-    \bigskip
+    \vspace{0.6cm}
     % institution
     \usebeamerfont{date}\insertinstitute\par
     \usebeamerfont{date}\insertdate%
