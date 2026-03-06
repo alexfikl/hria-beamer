@@ -60,6 +60,14 @@ the EU logo, so these commands are available.
 | `HRIAGreen`                       | ![#6BC392](https://placehold.co/15x15/6BC392/6BC392.png) `(107, 195, 217)` |
 | `HRIAPurple`                      | ![#732C90](https://placehold.co/15x15/732C90/732C90.png) `(115, 44, 144)` |
 
+## Fonts
+
+Most of the HRIA documents seem to use the Titillium Web font. If available, and
+when using `LuaLaTeX`, we will also try to load this font. The font is available
+on [Google Fonts](https://fonts.google.com/specimen/Titillium+Web) for download,
+if you want to use it as well. Otherwise, we fall back to the equally pretty
+Adobe Source Sans Pro font.
+
 ## License
 
 Creative Commons Attribution 4.0 International
