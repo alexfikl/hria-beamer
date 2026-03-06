@@ -297,32 +297,29 @@ those of the author(s) and do not necessarily reflect the views of the funding a
 
 % <<< itemize
 
-% FIXME: figure out how to ensure that the bullets are actually in the middle of the text line?
-
 \setbeamertemplate{itemize item}{
-\tikz[baseline=(c.south)]{
+\tikz[baseline=-0.75ex]{
     % circle
     \node[
       circle,
       fill=HRIALightBlue,
-      minimum size=0.75em,
+      minimum size=1.5ex,
       inner sep=0pt
     ] (c) {};
 
     % compute radius
-    \pgfmathsetmacro{\r}{0.05}
+    \pgfmathsetmacro{\r}{0.0075ex}
 
     % draw thick >
     \draw[
       white,
-      line width=0.1em,
+      line width=0.25ex,
       line cap=round,
       line join=round
     ] (-\r, \r) -- (\r, 0) -- (-\r, -\r);
   }%
 }
 
-\def\hria@subitemsize{0.35ex}
 \setbeamertemplate{itemize subitem}{\color{HRIALightBlue}$\bullet$}
 
 \setbeamertemplate{itemize subsubitem}{\color{HRIALightBlue}\rule[0.5ex]{0.75ex}{0.3ex}}
