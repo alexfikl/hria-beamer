@@ -16,7 +16,18 @@
 % set how hidden items are displayed: invisible / transparent / dynamic
 \setbeamercovered{transparent}
 
-\usepackage{sourcesanspro}
+\ifpdftex
+    \usepackage{sourcesanspro}
+\else
+    \usepackage{unicode-math}
+    \usepackage{sourcesanspro}
+
+    \IfFontExistsTF{Titillium Web}{
+        \setmainfont{Titillium Web}
+        \setsansfont{Titillium Web}
+        % \setmathfont{Fira Math}[Scale=0.95]
+    }{}
+\fi
 
 % >>> END
 
@@ -192,6 +203,25 @@ from Wikipedia)}
 \end{table}
 \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{HRIA Theme: Formulas}
+\framesubtitle{Gamma function definitions}
+
+\begin{itemize}
+    \item Euler's integral definition:
+    \[
+    \Gamma(z) = \int_0^{\infty} t^{z-1} e^{-t} \, \mathrm{d}t, \qquad \operatorname{Re}(z) > 0.
+    \]
+    \item Euler's product definition:
+    \[
+    \Gamma(z) = \frac{1}{z} \prod_{n=1}^{\infty} \frac{\left(1 + \tfrac{1}{n}\right)^z}{1 + \tfrac{z}{n}}.
+    \]
+    \item Weierstrass' product definition (use the Euler--Mascheroni constant $\gamma$):
+    \[
+    \frac{1}{\Gamma(z)} = z e^{\gamma z} \prod_{n=1}^{\infty} \left(1 + \frac{z}{n}\right) e^{-z/n}.
+    \]
+\end{itemize}
 \end{frame}
 
 \begin{frame}[plain,noframenumbering]{Acknowledgements}
