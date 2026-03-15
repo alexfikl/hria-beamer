@@ -12,6 +12,10 @@
 This is a Beamer template for the [HRIA project](https://hria.upb.ro/en/)
 (Romanian Hub for Artificial Intelligence).
 
+Templates in the same series:
+* [HRIA Beamer Presentation Template](https://github.com/alexfikl/hria-beamer)
+* [HRIA Poster Template](https://github.com/alexfikl/hria-poster)
+
 ## What it Looks Like
 
 [Full PDF](template.pdf)
